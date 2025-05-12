@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Ajuda - {{ category|capitalize }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card p-4" style="background:#23272b; color:#fff; border-radius:16px;">
+                <h3 class="mb-4">
+                    {% if category == 'conta' %}Conta e Perfil{% elif category == 'depositos' %}Depósitos e Saques{% elif category == 'apostar' %}Como Apostar{% elif category == 'tutoriais' %}Tutoriais{% elif category == 'seguranca' %}Segurança{% elif category == 'outros' %}Outros Assuntos{% else %}Ajuda{% endif %}
+                </h3>
+                <div>
+                    {% if category == 'conta' %}
+                    <h5>Como criar uma conta</h5>
+                    <ol>
+                        <li>Clique em <strong>Cadastre-se</strong> no topo do site.</li>
+                        <li>Preencha todos os campos obrigatórios: nome, sobrenome, email, senha, CPF, data de nascimento e universidade.</li>
+                        <li>Clique em <strong>Cadastrar</strong> para finalizar.</li>
+                    </ol>
+                    <h5 class="mt-4">Como fazer login</h5>
+                    <ol>
+                        <li>Clique em <strong>Entrar</strong> no topo do site.</li>
+                        <li>Digite seu email e senha cadastrados.</li>
+                        <li>Clique em <strong>Entrar</strong> para acessar sua conta.</li>
+                    </ol>
+                    <h5 class="mt-4">Recuperar senha</h5>
+                    <ol>
+                        <li>Na tela de login, clique em <strong>Esqueci a Senha</strong>.</li>
+                        <li>Siga as instruções para redefinir sua senha (mock/simulado).</li>
+                    </ol>
+                    <h5 class="mt-4">Editar perfil</h5>
+                    <ol>
+                        <li>Com login feito, clique no ícone de perfil na barra lateral.</li>
+                        <li>Clique em <strong>Editar Perfil</strong>.</li>
+                        <li>Altere os dados desejados e salve.</li>
+                    </ol>
+                    {% else %}
+                    <p>Conteúdo de ajuda para a categoria <strong>{{ category|capitalize }}</strong>.<br>
+                    Personalize este conteúdo conforme necessário.</p>
+                    {% endif %}
+                </div>
+                <a href="{{ url_for('info.help') }}" class="btn btn-green mt-3">Voltar para Ajuda</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

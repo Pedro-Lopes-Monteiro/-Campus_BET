@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Campus.BET - Início{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <!-- Sidebar já está no base.html -->
+    <!-- Conteúdo principal -->
+    <div class="col-lg-9">
+        <!-- Esportes (barra horizontal) -->
+        <div class="mb-4">
+            <div class="d-flex flex-nowrap overflow-auto pb-2" style="gap: 1rem;">
+                {% set sports = ["Futebol", "Vôlei", "Basquete", "Xadrez", "Handball", "Beach Tenis", "Skate", "eSports"] %}
+                {% for sport in sports %}
+                <button class="btn btn-green px-4 py-2" style="min-width:120px; border-radius: 8px; white-space:nowrap;">{{ sport }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Jogos em Destaque -->
+        <div class="mb-4">
+            <h4 class="mb-3" style="color:#fff;">Jogos em Destaque</h4>
+            <div class="row g-3">
+                {% for i in range(1, 4) %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm" style="background:#23272b; color:#fff; border-radius:12px;">
+                        <div class="card-header" style="background:#23272b; border-bottom:1px solid #444a50;">
+                            Futebol - Campeonato Universitário
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Time Alpha vs Time Beta</h5>
+                            <p class="card-text"><small class="text-muted">Hoje, 19:00</small></p>
+                            <div class="d-flex justify-content-around mb-2">
+                                <button class="btn btn-outline-light btn-sm">Alpha Vence (1.85)</button>
+                                <button class="btn btn-outline-secondary btn-sm">Empate (3.20)</button>
+                                <button class="btn btn-outline-light btn-sm">Beta Vence (4.50)</button>
+                            </div>
+                            <a href="#" class="btn btn-green w-100">Ver todas as apostas</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Notícias e Promoções -->
+        <div class="row mt-4 g-3">
+            <div class="col-md-6">
+                <div class="card" style="background:#23272b; color:#fff; border-radius:12px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Últimas Notícias</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-transparent text-light border-0">Resultado da rodada de Vôlei</li>
+                            <li class="list-group-item bg-transparent text-light border-0">Próximos jogos de Basquete</li>
+                            <li class="list-group-item bg-transparent text-light border-0">Dicas para apostar em eSports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="background:#23272b; color:#fff; border-radius:12px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Promoções Ativas</h5>
+                        <div class="alert" style="background:#00e600; color:#23272b; border-radius:8px;">
+                            Bônus de boas-vindas: Deposite R$50 e ganhe R$50 para apostar!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Lateral Direita: Minhas Apostas e Ranking -->
+    <div class="col-lg-3">
+        <div class="mb-4">
+            <div class="card" style="background:#23272b; color:#fff; border-radius:12px;">
+                <div class="card-body">
+                    <h5 class="card-title">Minhas Apostas</h5>
+                    <ul class="nav nav-tabs mb-2" id="betsTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="open-bets-tab" data-bs-toggle="tab" data-bs-target="#open-bets" type="button" role="tab">Em Aberto</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="resolved-bets-tab" data-bs-toggle="tab" data-bs-target="#resolved-bets" type="button" role="tab">Resolvidas</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="betsTabContent">
+                        <div class="tab-pane fade show active" id="open-bets" role="tabpanel">
+                            <p class="text-muted">Nenhuma aposta em aberto.</p>
+                        </div>
+                        <div class="tab-pane fade" id="resolved-bets" role="tabpanel">
+                            <p class="text-muted">Nenhuma aposta resolvida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card" style="background:#23272b; color:#fff; border-radius:12px;">
+                <div class="card-body">
+                    <h5 class="card-title">Ranking de Apostadores</h5>
+                    <ol class="mb-0" style="padding-left:1.2em;">
+                        <li>Usuário 1</li>
+                        <li>Usuário 2</li>
+                        <li>Usuário 3</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
